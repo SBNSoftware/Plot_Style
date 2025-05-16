@@ -1,6 +1,4 @@
 ///  \file   SBNDStyle.h
-///  \author Linyan <lwan@fnal.gov>
-///  \date   May 2025
 ///
 ///  \note  This style will be automatically applied to any plots made after `#include`ing it.
 ///         If you don't want that, set the preprocessor header
@@ -8,7 +6,7 @@
 ///          #define SBNDSTYLE_ENABLE_AUTOMATICALLY 0
 ///         \endcode
 ///         Then you can enable the style manually by calling `sbndstyle::setSBNDStyle()`.
-// n.b.  much of this style ripped off of DUNE official style
+// heavily copied from DUNE official style by J. Wolcott
 
 #ifndef SBND_STYLE_H
 #define SBND_STYLE_H
@@ -219,14 +217,14 @@ namespace sbndstyle
   }
 
 
-  /// Write a "SBND Work In Progress" tag
+  /// Write a "SBND Work in Progress" tag
   ///
   /// \param loc   Location to write (upper left is default).   Specify using ETextAlign values from ROOT's TAttText
   /// \param inFrame  When using "top" vertical alignment, specifies whether the label is inside the plot frame or outside it
   /// \return      The TLatex instance for the text
-  TLatex* WIP(ETextAlign loc=static_cast<ETextAlign>(kHAlignLeft + kVAlignTop), bool inFrame=true)
+  TLatex* WiP(ETextAlign loc=static_cast<ETextAlign>(kHAlignLeft + kVAlignTop), bool inFrame=true)
   {
-    return TextLabel(SBNDWatermarkString() + " Work In Progress", loc, inFrame, kBlack);
+    return TextLabel(SBNDWatermarkString() + " Work in Progress", loc, inFrame, kBlack);
   }
 
   // ----------------------------------------------------------------------------
@@ -239,31 +237,6 @@ namespace sbndstyle
   TLatex* Preliminary(ETextAlign loc=static_cast<ETextAlign>(kHAlignLeft + kVAlignTop), bool inFrame=true)
   {
     return TextLabel(SBNDWatermarkString() + " Preliminary", loc, inFrame, kBlack);
-  }
-
-  // ----------------------------------------------------------------------------
-
-  /// Write a "SBND Simulation" tag
-  ///
-  /// \param loc   Location to write (upper left is default).   Specify using ETextAlign values from ROOT's TAttText
-  /// \param inFrame  When using "top" vertical alignment, specifies whether the label is inside the plot frame or outside it
-  /// \return      The TLatex instance for the text
-  TLatex* Simulation(ETextAlign loc=static_cast<ETextAlign>(kHAlignLeft + kVAlignTop), bool inFrame=true)
-  {
-    return TextLabel(SBNDWatermarkString() + " Simulation", loc, inFrame, kBlack);
-  }
-
-  // ----------------------------------------------------------------------------
-
-  /// Write a "SBND Simulation" tag on the right side, outside the canvas (fixed location)
-  ///
-  /// \return      The TLatex instance for the text
-  TLatex* SimulationSide()
-  {
-    TLatex * label = TextLabel(SBNDWatermarkString() + " Simulation", .93, .9, kBlack);
-    label->SetTextAngle(270);
-    label->SetTextAlign(12);
-    return label;
   }
 
   // ----------------------------------------------------------------------------

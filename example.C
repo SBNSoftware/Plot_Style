@@ -1,7 +1,5 @@
 ///
 /// Demonstration of SBND plot style using C++ ROOT.
-///  \author Linyan <lwan@fnal.gov>
-///  \date   May 2025
 ///
 /// Heavily copied from DUNE plot style example
 
@@ -55,7 +53,7 @@ void OneDHistExample(TCanvas * c)
   h1D->Draw();
   h1D->GetYaxis()->SetRangeUser(h1D->GetYaxis()->GetXmin(), h1D->GetMaximum()*1.25);  // make room for watermark
   sbndstyle::CenterTitles(h1D);
-  sbndstyle::Simulation();
+  sbndstyle::WiP();
 }
 
 //-------------------------------------------------------------------
@@ -127,7 +125,7 @@ void TwoDExample(TCanvas * c)
   sbndstyle::CenterTitles(h2d);
   sbndstyle::SeaPalette();
   h2d->Draw("colz");
-  sbndstyle::Simulation();
+  sbndstyle::Official();
 
   // compute the contour levels.
   // this is a clumsy way of getting the cumulative distribution function
@@ -171,7 +169,7 @@ void CovExample(TCanvas * c)
 
   int dim = 10;
   TRandom3 rng(0);
-  auto hCov = new TH2D("hCov", "Random Covariance Matrix;Index i;Index j", dim, 0, dim, dim, 0, dim);
+  auto hCov = new TH2D("hCov", ";index i;index j", dim, 0, dim, dim, 0, dim);
   for (int i = 0; i < dim; ++i) for (int j = 0; j < dim; ++j) {
 	  if (i == j) hCov->SetBinContent(i+1, j+1, 1);
 	  else {
@@ -185,7 +183,7 @@ void CovExample(TCanvas * c)
   sbndstyle::SymmetricPalette();
   hCov->Draw("colz");
   hCov->GetZaxis()->SetRangeUser(-1,1);
-  sbndstyle::Preliminary();
+  sbndstyle::Preliminary(static_cast<ETextAlign>(kHAlignLeft + kVAlignTop), false);
 }
 
 
@@ -216,7 +214,7 @@ void StackedExample(TCanvas * c, std::vector<TH1D>& hists)
 
   hstack->SetMaximum(hstack->GetMaximum()*1.25);   // make some room for the watermark
   sbndstyle::CenterTitles(hstack->GetHistogram());
-  sbndstyle::WIP();
+  sbndstyle::WiP();
 }
 
 //-------------------------------------------------------------------
@@ -247,7 +245,7 @@ void OverlayExample(TCanvas * c, std::vector<TH1D>& hists)
   c->RedrawAxis();  // otherwise the last histogram drawn overlaps with the frame
   leg->Draw();
   hFirst->SetMaximum(hFirst->GetMaximum()*1.25); // make some space for the watermark
-  sbndstyle::WIP();
+  sbndstyle::WiP();
 }
 
 //-------------------------------------------------------------------
