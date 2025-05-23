@@ -173,12 +173,11 @@ void CovExample(TCanvas * c)
   for (int i = 0; i < dim; ++i) for (int j = 0; j < dim; ++j) {
 	  if (i == j) hCov->SetBinContent(i+1, j+1, 1);
 	  else {
-		  auto ent = std::min(1.0, std::max(-1.0, rng.Gaus(0, 0.3)));
+		  auto ent = std::min(1.0, std::max(-1.0, rng.Gaus(0, 0.2)));
 		  hCov->SetBinContent(i+1, j+1, ent);
 		  hCov->SetBinContent(j+1, i+1, ent);
 	  }
   }
-  //for (int i = 0; i < dim; ++i) for (int j = 0; j < dim; ++j) hCov->SetBinContent(i+1, j+1, C(i, j));
   sbndstyle::CenterTitles(hCov);
   sbndstyle::SymmetricPalette();
   hCov->Draw("colz");
