@@ -64,6 +64,12 @@ void OneDHistExample(TCanvas * c)
   sbndstyle::CenterTitles(h1D_data);
   h1D_data->Draw("Esame");
 
+  TLegend * leg = MakeLegend(0.65, 0.6, 0.9, 0.75);
+  leg->Clear();
+  leg->AddEntry(h1D_data,"Data","lep");
+  leg->AddEntry(h1D,"MC","lf");
+  leg->Draw();
+
   sbndstyle::WiP();
 }
 
