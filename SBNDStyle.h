@@ -451,8 +451,8 @@ namespace sbndstyle
 
     // Axis titles
     sbndStyle->SetTitleSize(.055, "xyz");
-    sbndStyle->SetTitleOffset(0.92, "xy");
-    sbndStyle->SetTitleOffset(0.7, "z");
+    sbndStyle->SetTitleOffset(1.0, "x");
+    sbndStyle->SetTitleOffset(1.1, "yz");
 
     // This applies the same settings to the overall plot title
     sbndStyle->SetTitleSize(.05, "");
@@ -472,7 +472,7 @@ namespace sbndstyle
 
     // Markers
     sbndStyle->SetMarkerStyle(kFullDotLarge);
-    sbndStyle->SetErrorX(0);
+    //sbndStyle->SetErrorX(0);
 
     // Set the number of tick marks to show
     sbndStyle->SetNdivisions(506, "xyz");

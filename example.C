@@ -40,7 +40,7 @@ std::vector<TH1D> GaussHists(std::size_t nHists=sbndstyle::colors::kColorCycles.
   {
     f.SetParameter(0, 2*int(histIdx) - (int(nHists)-1));
     hists.emplace_back(Form("hs%zu", histIdx+1), ";x label;y label", 100, -2*(nHists/2.+2), 2*nHists);
-    hists.back().FillRandom("f", 10000);
+    hists.back().FillRandom("f", 1000*(int(histIdx)+1));
   }
   return hists;
 }
@@ -48,11 +48,22 @@ std::vector<TH1D> GaussHists(std::size_t nHists=sbndstyle::colors::kColorCycles.
 //-------------------------------------------------------------------
 void OneDHistExample(TCanvas * c)
 {
-  TH1D *h1D = new TH1D("example1d", ";x label;y label", 50, -5, 5);
+  TH1D *h1D = new TH1D("example1d", ";x label;y label", 20, -5, 5);
   h1D->FillRandom("gaus", 1000);
-  h1D->Draw();
-  h1D->GetYaxis()->SetRangeUser(h1D->GetYaxis()->GetXmin(), h1D->GetMaximum()*1.25);  // make room for watermark
+  h1D->GetYaxis()->SetRangeUser(h1D->GetYaxis()->GetXmin(), h1D->GetMaximum()*1.30);  // make room for watermark
   sbndstyle::CenterTitles(h1D);
+  h1D->SetLineColor(sbndstyle::colors::kOkabeItoBlue);
+  auto newh = h1D->DrawCopy("hist"); 
+  h1D->SetFillColor(sbndstyle::colors::kOkabeItoBlue);        // Color of hatching
+  h1D->SetFillStyle(3004);          // Hatching pattern (diagonal lines)
+  h1D->SetMarkerStyle(1);          
+  h1D->Draw("E2same");
+
+  TH1D *h1D_data = new TH1D("example1d_data", ";x label;y label", 20, -5, 5);
+  h1D_data->FillRandom("gaus", 1000);
+  sbndstyle::CenterTitles(h1D_data);
+  h1D_data->Draw("Esame");
+
   sbndstyle::WiP();
 }
 
@@ -80,6 +91,7 @@ void DataMCExample(TCanvas * c)
   h1D->Fit("gaus", "Q");
   h1D->Draw("E");
   TF1* fit = h1D->GetFunction("gaus");
+  fit->SetLineColor(sbndstyle::colors::kOkabeItoVermilion);
   leg->AddEntry(h1D,"Data","lep");
   leg->AddEntry(fit,"Fit","l");
   leg->Draw();
@@ -94,6 +106,7 @@ void DataMCExample(TCanvas * c)
   c->cd(); p2->Draw(); p2->cd();
   h1D_ratio->GetYaxis()->SetRangeUser(-0.99,0.99);
   h1D_ratio->Draw("E");
+  zero->SetLineColor(sbndstyle::colors::kOkabeItoVermilion);
   zero->Draw("same");
 
   p1->cd();
@@ -237,6 +250,7 @@ void OverlayExample(TCanvas * c, std::vector<TH1D>& hists)
     auto newh = h.DrawCopy(histIdx == 0 ? "" : "same");  // need to leak it so it doesn't disappear
     if (!hFirst)
       hFirst = newh;
+	 hFirst->GetYaxis()->SetRangeUser(0, h.GetMaximum()>hFirst->GetMaximum() ? h.GetMaximum() : hFirst->GetMaximum());
 
     // we do this the hard way so the legend has the top-most histogram in the stack first
     leg->GetListOfPrimitives()->AddFirst(new TLegendEntry(newh, Form("Hist #%zu", histIdx+1), "l"));
