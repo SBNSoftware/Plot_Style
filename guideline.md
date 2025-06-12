@@ -59,8 +59,7 @@ and **at least one high-quality raster-based format** (e.g., png, good for slide
 
 ### Special guidance for Event Displays
 
-- Add data/simulation labels. If data, add Run/Subrun/Event and date text overlaying event display.
-- Overlay the SBND logo.
+- Check [guidelines for making public event displays](https://sbn-docdb.fnal.gov/cgi-bin/sso/ShowDocument?docid=37119)
 
 ## References
 
