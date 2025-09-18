@@ -56,6 +56,7 @@ and **at least one high-quality raster-based format** (e.g., png, good for slide
 
 - Do not cover figure contents.
 - Items should appear in the same top-to-bottom order as they are drawn in a histogram stack, if applicable.
+- If plot has Data then it should be the first entry in the legend
 
 ### Special guidance for Event Displays
 
