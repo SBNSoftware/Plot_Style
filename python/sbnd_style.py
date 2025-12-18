@@ -98,7 +98,7 @@ def sbnd_official(ax, x, y, fontsize=30):
 # Layout helpers
 # =========================
 def split_canvas(fig, ysplit=0.23):
-    gs = fig.add_gridspec(2, 1, height_ratios=[1 - ysplit, ysplit], hspace=0.2)
+    gs = fig.add_gridspec(2, 1, height_ratios=[1 - ysplit, ysplit], hspace=0.)
     ax1 = fig.add_subplot(gs[0])
     ax2 = fig.add_subplot(gs[1], sharex=ax1)
     return ax1, ax2
