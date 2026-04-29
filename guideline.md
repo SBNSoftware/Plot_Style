@@ -14,8 +14,8 @@ See [SBNDStyle.h](https://github.com/SBNSoftware/Plot_Style/blob/main/SBNDStyle.
 All plots **must**:
 
 - **Be labelled with SBND official plot types**:     
-  _SBND_, _SBND Preliminary_, or _SBND Work in Progress_.  
-  See the [SBND publication policy](https://sbn-docdb.fnal.gov/cgi-bin/sso/ShowDocument?docid=1542).
+  _SBND_, _SBND Preliminary_, _SBND Analysis in Progress_, or _SBND Work in Progress for \<conference name\>_.  
+  See the [SBND publication policy](https://sbn-docdb.fnal.gov/cgi-bin/sso/ShowDocument?docid=1).
 - **Be easily readable**.
   See [recommendations](#recommendations) below for further advice.
 - **Be saved in at least in one vector-based format** (e.g., pdf or eps, good for articles),
