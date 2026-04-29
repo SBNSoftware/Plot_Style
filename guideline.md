@@ -1,7 +1,6 @@
 # SBND plotting guidelines and recommendations
 
-We are collecting comments and suggestions in [this googledoc](https://docs.google.com/document/d/1gxDuPT8zzrf3284mkZ_35KVOh_leFdQUiu6VjdEdUOw/edit?tab=t.0#heading=h.6osd0ywofj87).
-Please share your thoughts! 
+Please share your thoughts by making PRs to this repository.
 
 ## Introduction
 
