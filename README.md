@@ -2,6 +2,4 @@
 
 Proposed plotting tools for SBND.
 
-Currently support ROOT only.
-
-Work in progress. Welcome any contribution.
+Currently support ROOT and python (thanks to Alejandro!).
