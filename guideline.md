@@ -1,6 +1,7 @@
 # SBND plotting guidelines and recommendations
 
 Please share your thoughts by making PRs to this repository.
+Starting 2026.05 this repository will be maintained by the publication committee.
 
 ## Introduction
 
