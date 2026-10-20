@@ -82,17 +82,20 @@ def next_color(cycle="okabe_ito", start=None):
 def sbnd_watermark():
     return r"$\bf{SBND}$"
 
-def sbnd_wip(ax, x, y, fontsize=30):
-    ax.text(x, y, f"{sbnd_watermark()} Work in Progress", horizontalalignment='left', verticalalignment='top', transform=ax.transAxes, fontsize=fontsize,  **{'fontname':'Helvetica'})
+def sbnd_wip(ax, x, y, fontsize=25):
+    ax.text(x, y, f"{sbnd_watermark()} Work in Progress", horizontalalignment='left', verticalalignment='top', transform=ax.transAxes, fontsize=fontsize)
 
-def sbnd_preliminary(ax, x, y, ha='left', va='top', fontsize=30):
-    ax.text(x, y, f"{sbnd_watermark()} Preliminary", horizontalalignment='left', verticalalignment='top', transform=ax.transAxes, fontsize=fontsize,  **{'fontname':'Helvetica'})
+def sbnd_preliminary(ax, x, y, fontsize=25):
+    ax.text(x, y, f"{sbnd_watermark()} Preliminary", horizontalalignment='left', verticalalignment='top', transform=ax.transAxes, fontsize=fontsize)
 
-def sbnd_data(ax, x, y, ha='left', va='top', fontsize=30):
-    ax.text(x, y, f"{sbnd_watermark()} Data", horizontalalignment='left', verticalalignment='top', transform=ax.transAxes, fontsize=fontsize,  **{'fontname':'Helvetica'})
+def sbnd_data(ax, x, y, fontsize=25):
+    ax.text(x, y, f"{sbnd_watermark()} Data", horizontalalignment='left', verticalalignment='top', transform=ax.transAxes, fontsize=fontsize)
 
-def sbnd_official(ax, x, y, fontsize=30):
-    ax.text(x, y, f"{sbnd_watermark()}", horizontalalignment='left', verticalalignment='top', transform=ax.transAxes, fontsize=fontsize,  **{'fontname':'Helvetica'})
+def sbnd_official(ax, x, y, fontsize=25):
+    ax.text(x, y, f"{sbnd_watermark()}", horizontalalignment='left', verticalalignment='top', transform=ax.transAxes, fontsize=fontsize)
+
+def sbnd_internal(ax, x, y, fontsize=25):
+    ax.text(x, y, f"{sbnd_watermark()} Internal", horizontalalignment='left', verticalalignment='top', transform=ax.transAxes, fontsize=fontsize)
 
 # =========================
 # Layout helpers
@@ -121,7 +124,7 @@ def _apply_default_style():
         "errorbar.capsize": 3,
         "savefig.dpi": 300,
         "figure.dpi": 100,
-        "font.family": "sans-serif",
+        "font.family": "Helvetica",
         "font.size": 14,
         "axes.labelsize": 25,
         "axes.titlesize": 25,
